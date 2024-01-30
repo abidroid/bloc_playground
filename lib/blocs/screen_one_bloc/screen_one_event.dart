@@ -13,3 +13,8 @@ class ScreenOneSliderEvent extends ScreenOneEvent {
   final double sliderValue;
   const ScreenOneSliderEvent({required this.sliderValue});
 }
+
+class ScreenOneDropdownEvent extends ScreenOneEvent {
+  final String selectedValue;
+  const ScreenOneDropdownEvent({required this.selectedValue});
+}
