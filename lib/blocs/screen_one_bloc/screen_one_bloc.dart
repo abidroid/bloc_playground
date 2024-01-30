@@ -8,27 +8,33 @@ class ScreenOneBloc extends Bloc<ScreenOneEvent, ScreenOneState> {
   ScreenOneBloc() : super(ScreenOneState(switchOn: false, sliderValue: 0, selectedDropdownValue: cities[0])) {
     on<ScreenOneEvent>((event, emit) {
       if (event is ScreenOneSwitchEvent) {
-        emit(ScreenOneState(
-          switchOn: !state.switchOn,
-          sliderValue: state.sliderValue,
-          selectedDropdownValue: state.selectedDropdownValue,
-        ));
+        // emit(ScreenOneState(
+        //   switchOn: !state.switchOn,
+        //   sliderValue: state.sliderValue,
+        //   selectedDropdownValue: state.selectedDropdownValue,
+        // ));
+
+        emit(state.copyWith(switchOn: !state.switchOn));
       }
 
       if (event is ScreenOneSliderEvent) {
-        emit(ScreenOneState(
-          switchOn: state.switchOn,
-          sliderValue: event.sliderValue,
-          selectedDropdownValue: state.selectedDropdownValue,
-        ));
+        // emit(ScreenOneState(
+        //   switchOn: state.switchOn,
+        //   sliderValue: event.sliderValue,
+        //   selectedDropdownValue: state.selectedDropdownValue,
+        // ));
+
+        emit(state.copyWith(sliderValue: event.sliderValue));
       }
 
       if (event is ScreenOneDropdownEvent) {
-        emit(ScreenOneState(
-          switchOn: state.switchOn,
-          sliderValue: state.sliderValue,
-          selectedDropdownValue: event.selectedValue,
-        ));
+        // emit(ScreenOneState(
+        //   switchOn: state.switchOn,
+        //   sliderValue: state.sliderValue,
+        //   selectedDropdownValue: event.selectedValue,
+        // ));
+
+        emit(state.copyWith(selectedDropdownValue: event.selectedValue));
       }
     });
   }

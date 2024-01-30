@@ -4,11 +4,20 @@ class ScreenOneState extends Equatable {
   final bool switchOn;
   final double sliderValue;
   final String selectedDropdownValue;
+
   const ScreenOneState({
-    required this.switchOn,
-    required this.sliderValue,
-    required this.selectedDropdownValue,
+    this.switchOn = false,
+    this.sliderValue = 0,
+    this.selectedDropdownValue = 'Peshawar',
   });
+
+  ScreenOneState copyWith({bool? switchOn, double? sliderValue, String? selectedDropdownValue}) {
+    return ScreenOneState(
+      switchOn: switchOn ?? this.switchOn,
+      sliderValue: sliderValue ?? this.sliderValue,
+      selectedDropdownValue: selectedDropdownValue ?? this.selectedDropdownValue,
+    );
+  }
 
   @override
   List<Object> get props => [switchOn, sliderValue, selectedDropdownValue];
