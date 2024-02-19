@@ -1,3 +1,4 @@
+import 'package:bloc_playground/screens/post_request_screen.dart';
 import 'package:bloc_playground/screens/screen_one.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,15 @@ class LandingScreen extends StatelessWidget {
                 return const ScreenOne();
               }));
             },
-          )
+          ),
+          ListTile(
+            title: const Text('Post Request'),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                return const PostRequestScreen();
+              }));
+            },
+          ),
         ],
       ),
     );
